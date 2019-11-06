@@ -11,4 +11,7 @@ unsigned char XOR(unsigned char a, unsigned char b);
 unsigned char SHL(unsigned char a, unsigned char b);
 unsigned char SHR(unsigned char a, unsigned char b);
 unsigned char inverse(unsigned char a);
+unsigned char rotLeft(unsigned char a, unsigned char r);
+unsigned char rotRight(unsigned char a, unsigned char r);
+unsigned char separe(unsigned char a);
 #endif

@@ -18,19 +18,19 @@ unsigned char XOR(unsigned char a, unsigned char b)
 	return (a ^ b);
 }
 
-//Déclage à droite.
+//Déclage à gauche.
 unsigned char SHL(unsigned char a, unsigned char b)
 {
 	return (a << b);
 }
 
-//Déclage à gauche
+//Déclage à droite
 unsigned char SHR(unsigned char a, unsigned char b)
 {
 	return (a >> b);
 }
 
-//Inverse la valeur passée en argument.exo00
+//Inverse la valeur passée en argument.<exo00>
 unsigned char inverse(unsigned char a)
 {
 	unsigned i = 0,  mod = 0, b = 0;
@@ -53,4 +53,56 @@ unsigned char inverse(unsigned char a)
 	 b = SHL(b, (8 - i));
 	
 	return b;
+}
+
+//Fait une rotation à gauche de r positions des bits de a.<exo02>
+unsigned char rotLeft(unsigned char a, unsigned char r)
+{
+	for(int i = 0; i < r; i++)
+	{
+		if(a >= 128)
+		{
+			a = SHL(a, 1);
+			a = OR(a, 1);
+		}
+		else 
+			a = SHL(a, 1);
+	}
+	return a;
+}
+
+//Fait une rotation à droite de r positions des bits de a.<exo02>
+unsigned char rotRight(unsigned char a, unsigned char r)
+{
+	for(int i = 0; i < r; i++)
+	{
+		if((a % 2) == 0)
+			a = SHR(a, 1);
+		else 
+		{
+			a = SHR(a, 1);
+			a = OR(a, 128);
+		}
+	}
+	return a;
+}
+
+//Aggrège tous les bits à 1 à droites.<exo03>
+unsigned char separe(unsigned char a)
+{
+	int nb = 0;
+	while(a != 0)
+	{
+		if((a % 2) != 0)
+			++nb;
+		a = SHR(a, 1);
+	}
+	a = 0;
+	for(int i = 0; i < nb; i++)
+	{
+		a = SHL(a, 1);
+		a = OR(a, 1);
+	}
+	printf("\n");
+	return a;
 }
