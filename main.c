@@ -2,8 +2,8 @@
 
 int main(void)
 {
-	unsigned  var = inverse(7);
+	unsigned  var = inverse(4);
 	
-	printf("inverse 7 = %d", var);
+	printf("inverse 7 = %u\n", var);
 	return EXIT_SUCCESS;
 }
