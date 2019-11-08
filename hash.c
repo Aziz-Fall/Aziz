@@ -29,7 +29,6 @@ int main(void)
     printf("TG : %2d\n", hacher("TG"));
     printf("TT : %2d\n", hacher("TT"));
     printf("T- : %2d\n", hacher("T-"));
-    printf("-- : %2d\n", hacher("--"));
     printf("##########################\n");
     return EXIT_SUCCESS;
 }
