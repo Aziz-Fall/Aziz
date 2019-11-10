@@ -39,7 +39,7 @@ int hacher(char *s) {
 	len = strlen(s);
 	accum = 0;
 	for (;len > 0; len--) {
-		accum <<=1;
+		accum >>=1;
 		accum += (unsigned) (*s++ & 0xFF);        
 	}
 	return (accum)%7;
