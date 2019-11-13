@@ -106,3 +106,8 @@ unsigned char separe(unsigned char a)
 	printf("\n");
 	return a;
 }
+
+/* 		==========EXO 0×04 ==============
+---Cet algorithme inverse les deux valeur a et b.
+*/
+
