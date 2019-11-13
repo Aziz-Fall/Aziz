@@ -30,6 +30,12 @@ int main(void)
     printf("TT : %2d\n", hacher("T"));
     printf("T_ : %2d\n", hacher("_"));
     printf("##########################\n");
+    printf("_A : %2d\n", hacher("A"));
+    printf("_C : %2d\n", hacher("C"));
+    printf("_G : %2d\n", hacher("G"));
+    printf("_T : %2d\n", hacher("T"));
+    printf("__ : %2d\n", hacher("_"));
+    printf("##########################\n");
     return EXIT_SUCCESS;
 }
 
