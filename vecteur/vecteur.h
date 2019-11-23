@@ -24,6 +24,6 @@ void empiler(Vecteur v, int valeur);
 void depiler(Vecteur v);
 int max(Vecteur v);
 int min(Vecteur v);
-int lire(int index);
+int lire(Vecteur v, int index);
 int effacer_element(Vecteur v, int element);
 #endif

@@ -14,6 +14,9 @@ int main(void)
     affiche_vecteur(v);
     printf("########################################\n");
     printf("->nomber_element : %d.\n", v->nomber_element);
+    printf("->index : %d\n", max(v));
+    depiler(v);
+    affiche_vecteur(v);
     printf("########################################\n");
     
     if(est_vide(v))

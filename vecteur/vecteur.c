@@ -92,23 +92,50 @@ void empiler(Vecteur v, int valeur)
 }
 //Supprime un élement à la fin du vecteur.
 void depiler(Vecteur v)
-{
+{  
+    if(est_vide(v))
+    {
+        fprintf(stderr, "Max introuvable.\n");
+        return;
+    }
+    
+    --(v->nomber_element);
+    v->element = (int *)realloc(v->element, v->nomber_element);
+
 
 }
 //Retourne le maximum du vecteur.
 int max(Vecteur v)
 {
-    return 0;
+    if(est_vide(v))
+    {
+        fprintf(stderr, "Max introuvable.\n");
+        return 0;
+    }
+
+    return *(v->element + v->nomber_element - 1);
 }
 //Retourne le minimum du vecteur.
 int min(Vecteur v)
 {
-    return 0;
+    if(est_vide(v))
+    {
+        fprintf(stderr, "Min introuvable.\n");
+        return 0;
+    }
+
+    return *(v->element);
 }
 //Retourne l'élement d'indice passé en argument.
-int lire(int index)
+int lire(Vecteur v, int index)
 {
-    return 0;
+    if(est_vide(v) || index >= v->nomber_element)
+    {
+        fprintf(stderr, "Index introuvable.\n");
+        return 0;
+    }
+
+    return *(v->element + index - 1);
 }
 //Retourne l'élement éffacer.
 int effacer_element(Vecteur v, int element)
