@@ -1,5 +1,5 @@
 run: main
-	 ./main
+	./main
 
 main: main.o vecteur.o
 	gcc -o main *.o -g -Wall

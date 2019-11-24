@@ -85,24 +85,22 @@ void inserer(Vecteur v, int valeur)
     v->nomber_element++;
     tri_rapide(v->element, 0, (v->nomber_element));
 }
-//Ajoute un élement à la fin du vecteur.
-void empiler(Vecteur v, int valeur)
-{
 
-}
 //Supprime un élement à la fin du vecteur.
-void depiler(Vecteur v)
+int supprimer_dernier_element(Vecteur v)
 {  
     if(est_vide(v))
     {
         fprintf(stderr, "Max introuvable.\n");
-        return;
+        return 0;
     }
     
+    int valeur_supprimee = *(v->element + v->nomber_element - 1);
+
     --(v->nomber_element);
     v->element = (int *)realloc(v->element, v->nomber_element);
 
-
+    return valeur_supprimee;
 }
 //Retourne le maximum du vecteur.
 int max(Vecteur v)
@@ -137,8 +135,56 @@ int lire(Vecteur v, int index)
 
     return *(v->element + index - 1);
 }
-//Retourne l'élement éffacer.
-int effacer_element(Vecteur v, int element)
+//Retourne la valeur supprimée.
+int supprimer(Vecteur v, int index)
 {
-    return 0;
+    if(est_vide(v) || index >= v->nomber_element)
+    {
+        fprintf(stderr, "Index n'existe pas.\n");
+        return 0;
+    }
+    int var_deleted = *(v->element + index);
+
+    for(int i = index; i < (v->nomber_element - 1); i++)
+        v->element[i] = v->element[i + 1];
+    
+    v->nomber_element -= 1;
+    v->element = (int *)realloc(v->element, v->nomber_element);
+
+    if(v->element == NULL)
+    {
+        fprintf(stderr, "Impossible de suppimer l'element.\n");
+        exit(EXIT_FAILURE);
+    }
+
+    return var_deleted;
+}
+
+//Supprime le premier element du vecteur.
+int supprimer_premier_element(Vecteur v)
+{
+    if(est_vide(v))
+    {
+        fprintf(stderr, "Impossible supprimer le premier element.\n");
+        return 0;
+    }
+    int valeur_supprimee = *(v->element);
+    for(int i = 0; i < (v->nomber_element - 1); i++)
+        v->element[i] = v->element[i + 1];
+    
+    v->element = (int *)realloc(v->element, (v->nomber_element - 1));
+    if (v->element == NULL) 
+    {
+        fprintf(stderr, "Impossible de réalouer de la mémoire\n");
+        return 0;
+    }
+    v->nomber_element -= 1;
+
+    return valeur_supprimee; 
+}
+
+void clear_vector(Vecteur v)
+{
+    free(v->element);
+    free(v);
 }

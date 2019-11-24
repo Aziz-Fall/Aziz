@@ -13,10 +13,28 @@ int main(void)
 
     affiche_vecteur(v);
     printf("########################################\n");
+
     printf("->nomber_element : %d.\n", v->nomber_element);
     printf("->index : %d\n", max(v));
-    depiler(v);
+
+    printf("########################################\n");
+
+    printf("->var_deleted : %d\n", supprimer(v, 3));
     affiche_vecteur(v);
+    printf("->nomber_element : %d.\n", v->nomber_element);
+
+    printf("########################################\n");
+
+    printf("->valeur supprimer: %d\n", supprimer_dernier_element(v));
+    affiche_vecteur(v);
+    printf("->nomber_element : %d.\n", v->nomber_element);
+
+    printf("########################################\n");
+
+    printf("->valeur supprimée: %d\n", supprimer_premier_element(v));
+    affiche_vecteur(v);
+    printf("->nomber_element : %d.\n", v->nomber_element);
+
     printf("########################################\n");
     
     if(est_vide(v))
@@ -25,6 +43,7 @@ int main(void)
         printf("Le vecteur n'est pas vide.\n");
 
     printf("########################################\n");
-    free(v);
+
+    clear_vector(v);
     return EXIT_SUCCESS;
 }

@@ -20,10 +20,11 @@ Vecteur creer_vecteur();
 Bool est_vide(Vecteur v);
 void affiche_vecteur(Vecteur v);
 void inserer(Vecteur v, int valeur);
-void empiler(Vecteur v, int valeur);
-void depiler(Vecteur v);
+int supprimer_dernier_element(Vecteur v);
+int supprimer_premier_element(Vecteur v);
 int max(Vecteur v);
 int min(Vecteur v);
 int lire(Vecteur v, int index);
-int effacer_element(Vecteur v, int element);
+int supprimer(Vecteur v, int index);
+void clear_vector(Vecteur v);
 #endif
